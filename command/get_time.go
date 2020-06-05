@@ -1,4 +1,4 @@
-package main
+package command
 
 import (
 	"time"
@@ -6,9 +6,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func getTimeCmd() *cobra.Command {
+// GetTime command to tell time
+func GetTime() *cobra.Command {
 	return &cobra.Command{
-		Use: "timenow",
+		Use:   "timenow",
+		Short: "Telling the time",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			now := time.Now()
 			prettyTime := now.Format(time.RubyDate)

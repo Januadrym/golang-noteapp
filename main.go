@@ -3,6 +3,8 @@ package main
 import (
 	"os"
 
+	"github.com/Januadrym/rnote/command"
+
 	"github.com/spf13/cobra"
 )
 
@@ -12,7 +14,9 @@ func main() {
 		Short: "Welcome back, Quan",
 	}
 
-	listCmd.AddCommand(getTimeCmd())
+	listCmd.AddCommand(command.GetTime())
+	listCmd.AddCommand(command.CreateNewNote())
+	listCmd.SetHelpCommand(command.SetHelp())
 	if err := listCmd.Execute(); err != nil {
 		os.Exit(1)
 	}

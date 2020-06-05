@@ -1,0 +1,5 @@
+# build file
+*.exe
+
+# test file
+*.txt

@@ -9,7 +9,7 @@ import (
 func main() {
 	listCmd := &cobra.Command{
 		Use:   "Rnote",
-		Short: "Hello Quan",
+		Short: "Welcome back, Quan",
 	}
 
 	listCmd.AddCommand(getTimeCmd())

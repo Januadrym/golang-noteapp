@@ -1,4 +1,4 @@
-module github.com/Januadrym/golang-noteapp
+module github.com/Januadrym/rnote
 
 go 1.14
 

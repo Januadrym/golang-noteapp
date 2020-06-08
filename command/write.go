@@ -14,23 +14,30 @@ import (
 func CreateNewNote() *cobra.Command {
 	return &cobra.Command{
 		Use:   "new",
-		Short: "Create new note",
-		Long:  "Create new note with file name\nTo finish type: !exit! ",
+		Short: "Create new note at current directory",
+		Long:  "Create new note with file's name\nFile name must be longer than 3 character\nTo finished and save, type in: !exit! ",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			filename, err := inputFileName()
 			if err != nil {
-				fmt.Print("Error: ", err)
+				fmt.Println("Oops, you did something wrong")
+				return err
 			}
-			fmt.Println(filename, "created at current directory.")
-
+			if _, er := os.Stat(filename); os.IsNotExist(er) {
+				fmt.Println(filename, "created at current directory.")
+			} else {
+				fmt.Println("File already exist")
+				return er
+			}
 			file, err := os.Create(filename)
 			if err != nil {
 				fmt.Println(err)
 			}
-
 			defer file.Close()
+
+			// mark save point
 			defer fmt.Fprint(file, "-------> At ", time.Now().Format("Mon Jan 2 15:04:05"))
 
+			// write
 			reader := bufio.NewReader(os.Stdin)
 			for {
 				fmt.Print("-> ")
@@ -46,16 +53,4 @@ func CreateNewNote() *cobra.Command {
 			return nil
 		},
 	}
-}
-
-func inputFileName() (string, error) {
-	inputFileName := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter file name: ")
-	filename, _ := inputFileName.ReadString('\n')
-	filename = strings.Replace(filename, "\r\n", "", -1)
-
-	if filename == "" {
-		return "", fmt.Errorf("No file name")
-	}
-	return filename + ".txt", nil
 }

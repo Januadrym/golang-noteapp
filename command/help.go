@@ -9,8 +9,16 @@ func SetHelp() *cobra.Command {
 		Long: `In case you don't know how to use.
 I'm here to help.
 And you're pretty dumb :)
+Just kidding, you're the man.
+Here is how:
+	Chose the location to store your note
+	"new" to create a new note
+	"read" to open a existing note
+	"edit" to edit, obviously
+	"delete" to delete, obviously
+	"showall" to show all *.txt file in current directory
 
-Furthur Regards,
-	Quan`,
+Furthur regards,
+Quan`,
 	}
 }

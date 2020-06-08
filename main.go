@@ -15,7 +15,11 @@ func main() {
 	}
 
 	listCmd.AddCommand(command.GetTime())
+	listCmd.AddCommand(command.ListAllNote())
 	listCmd.AddCommand(command.CreateNewNote())
+	listCmd.AddCommand(command.ReadNote())
+	listCmd.AddCommand(command.EditNote())
+	listCmd.AddCommand(command.DeleteNote())
 	listCmd.SetHelpCommand(command.SetHelp())
 	if err := listCmd.Execute(); err != nil {
 		os.Exit(1)

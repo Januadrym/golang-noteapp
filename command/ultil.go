@@ -13,7 +13,7 @@ func showListFile() error {
 	wd, _ := os.Getwd()
 	var files []string
 	err := filepath.Walk(wd, func(path string, info os.FileInfo, err error) error {
-		if filepath.Ext(path) == ".txt" {
+		if filepath.Ext(wd) == ".txt" {
 			files = append(files, info.Name())
 		}
 		return nil

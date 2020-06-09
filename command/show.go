@@ -12,7 +12,7 @@ func ListAllNote() *cobra.Command {
 		Long:  "Display all note you have in current directory",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if err := showListFile(); err != nil {
-				return err
+				return nil
 			}
 			return nil
 		},

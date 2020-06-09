@@ -17,7 +17,7 @@ func ReadNote() *cobra.Command {
 		Long:  "Choose an existing note to read :|",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if err := showListFile(); err != nil {
-				return err
+				return nil
 			}
 			fmt.Println("Choose a note to read")
 			filename, err := inputFileName()

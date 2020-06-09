@@ -16,7 +16,8 @@ Here is how:
 	"read" to open a existing note
 	"edit" to edit, obviously
 	"delete" to delete, obviously
-	"showall" to show all *.txt file in current directory
+	"show" to show all *.txt file in current directory
+	"time" addition command to display time 
 
 Furthur regards,
 Quan`,

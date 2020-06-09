@@ -21,6 +21,7 @@ func main() {
 	listCmd.AddCommand(command.EditNote())
 	listCmd.AddCommand(command.DeleteNote())
 	listCmd.SetHelpCommand(command.SetHelp())
+
 	if err := listCmd.Execute(); err != nil {
 		os.Exit(1)
 	}

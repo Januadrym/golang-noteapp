@@ -37,7 +37,7 @@ func EditNote() *cobra.Command {
 				return err
 			}
 			defer file.Close()
-			defer fmt.Fprint(file, "-------> At ", time.Now().Format("Mon Jan 2 15:04:05"))
+			defer fmt.Fprint(file, "\n-------> At ", time.Now().Format("Mon Jan 2 15:04:05"))
 
 			// old data
 			fmt.Println("Content in:", filename)
@@ -54,6 +54,7 @@ func EditNote() *cobra.Command {
 			}
 			// appending new data
 			inputR := bufio.NewReader(os.Stdin)
+			fmt.Println("")
 			for {
 				fmt.Print("-> ")
 
@@ -63,7 +64,7 @@ func EditNote() *cobra.Command {
 				if strings.Compare(text, "!exit!") == 0 {
 					break
 				}
-				fmt.Fprintf(file, text+"\n")
+				fmt.Fprintf(file, "\n"+text)
 			}
 			return nil
 		},

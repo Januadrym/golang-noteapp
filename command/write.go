@@ -24,6 +24,7 @@ func CreateNewNote() *cobra.Command {
 			}
 			if _, er := os.Stat(filename); os.IsNotExist(er) {
 				fmt.Println(filename, "created at current directory.")
+				fmt.Println("Type in: !exit! to save and quit")
 			} else {
 				fmt.Println("File already exist")
 				return er

@@ -8,13 +8,12 @@ func SetHelp() *cobra.Command {
 		Use: "howto",
 		Long: `In case you don't know how to use.
 I'm here to help.
-And you're pretty dumb :)
-Just kidding, you're the man.
+
 Here is how:
 	Chose the location to store your note
-	"new" to create a new note
+	"new" to create a new note, !exit! to save and quit
 	"read" to open a existing note
-	"edit" to edit, obviously
+	"edit" to edit, !exit! to save and quit
 	"delete" to delete, obviously
 	"show" to show all *.txt file in current directory
 	"time" addition command to display time 

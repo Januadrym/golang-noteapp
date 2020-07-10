@@ -48,3 +48,8 @@ Feel free to contact if you have feedback
 
 ## TODO
 Support more file format
+
+## What I learned
+ * Write CLI application with Go
+ * Work with framework: Cobra
+ * Work with files in Go

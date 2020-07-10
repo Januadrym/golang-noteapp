@@ -15,8 +15,8 @@ import (
 func EditNote() *cobra.Command {
 	return &cobra.Command{
 		Use:   "edit",
-		Short: "Edit one note",
-		Long:  "Choose one existing note to put in more text",
+		Short: "Edit one note (append to existed note)",
+		Long:  "Choose one existing note to put in more text (append)",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if err := showListFile(); err != nil {
 				return err

@@ -59,12 +59,15 @@ func EditNote() *cobra.Command {
 				fmt.Print("-> ")
 
 				text, _ := inputR.ReadString('\n')
-				text = strings.Replace(text, "\r\n", "", -1)
+				finaltext, err := trimEndLineSequence(text)
+				if err != nil {
+					return err
+				}
 
-				if strings.Compare(text, "!exit!") == 0 {
+				if strings.Compare(finaltext, "!exit!") == 0 {
 					break
 				}
-				fmt.Fprintf(file, "\n"+text)
+				fmt.Fprintf(file, "\n"+finaltext)
 			}
 			return nil
 		},

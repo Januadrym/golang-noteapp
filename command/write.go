@@ -44,12 +44,15 @@ func CreateNewNote() *cobra.Command {
 				fmt.Print("-> ")
 
 				text, _ := reader.ReadString('\n')
-				text = strings.Replace(text, "\r\n", "", -1)
+				finaltext, err := trimEndLineSequence(text)
+				if err != nil {
+					return err
+				}
 
-				if strings.Compare(text, "!exit!") == 0 {
+				if strings.Compare(finaltext, "!exit!") == 0 {
 					break
 				}
-				fmt.Fprintf(file, text+"\n")
+				fmt.Fprintf(file, finaltext+"\n")
 			}
 			return nil
 		},

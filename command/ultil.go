@@ -37,10 +37,21 @@ func inputFileName() (string, error) {
 	inputFileName := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter file name: ")
 	filename, _ := inputFileName.ReadString('\n')
-	filename = strings.Replace(filename, "\r\n", "", -1)
 
-	if len(filename) < 1 {
+	finalfilename, err := trimEndLineSequence(filename)
+	if len(finalfilename) < 1 || err != nil {
 		return "", errors.New("Please input correct file name")
 	}
-	return filename + ".txt", nil
+	return finalfilename + ".txt", nil
+}
+
+func trimEndLineSequence(sq string) (string, error) {
+	if strings.Contains(sq, "\r\n") {
+		sq = strings.Replace(sq, "\r\n", "", -1)
+		return sq, nil
+	} else if strings.Contains(sq, "\n") {
+		sq = strings.Replace(sq, "\n", "", -1)
+		return sq, nil
+	}
+	return "", fmt.Errorf("Error while trimming end of line sequence")
 }

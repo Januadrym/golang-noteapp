@@ -44,13 +44,13 @@ func EditNote() *cobra.Command {
 			reader := bufio.NewReader(file)
 			for {
 				line, err := reader.ReadString('\n')
-				fmt.Print(line)
 				if err == io.EOF {
 					break
 				} else if err != nil {
 					fmt.Printf("error reading file %s", err)
 					break
 				}
+				fmt.Print(line)
 			}
 			// appending new data
 			inputR := bufio.NewReader(os.Stdin)

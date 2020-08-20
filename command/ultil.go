@@ -16,18 +16,22 @@ func showListFile() error {
 	if err != nil {
 		return err
 	}
+	var txts []string
+	for _, file := range files {
+		if check, _ := regexp.MatchString(".txt", file.Name()); check {
+			txts = append(txts, file.Name())
+		}
+	}
 
-	if len(files) == 0 {
+	if len(txts) == 0 {
 		fmt.Println("You don't have any note here")
 		return errors.New("Empty")
 	}
 
 	fmt.Println("Here are all notes: ")
 	fmt.Println("+------------------+")
-	for _, file := range files {
-		if check, _ := regexp.MatchString(".txt", file.Name()); check {
-			fmt.Println("    ", file.Name())
-		}
+	for _, txt := range txts {
+		fmt.Println("    ", txt)
 	}
 	fmt.Println("+------------------+")
 

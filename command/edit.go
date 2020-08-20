@@ -40,7 +40,7 @@ func EditNote() *cobra.Command {
 			defer fmt.Fprint(file, "\n-------> At ", time.Now().Format("Mon Jan 2 15:04:05"))
 
 			// old data
-			fmt.Println("Content in:", filename)
+			fmt.Println("Content in ", filename, ">>")
 			reader := bufio.NewReader(file)
 			for {
 				line, err := reader.ReadString('\n')

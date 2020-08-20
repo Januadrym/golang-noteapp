@@ -37,7 +37,7 @@ func ReadNote() *cobra.Command {
 			defer file.Close()
 
 			// read
-			fmt.Println("Content in:", filename)
+			fmt.Println("Content in", filename, ">>")
 			reader := bufio.NewReader(file)
 			for {
 				line, err := reader.ReadString('\n')

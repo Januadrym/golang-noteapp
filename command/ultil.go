@@ -17,19 +17,20 @@ func showListFile() error {
 		return err
 	}
 
-	if len(files) != 0 {
-		fmt.Println("Here are all notes: ")
-		fmt.Println("+------------------+")
-		for _, file := range files {
-			if check, _ := regexp.MatchString(".txt", file.Name()); check {
-				fmt.Println("    ", file.Name())
-			}
-		}
-		fmt.Println("+------------------+")
-	} else {
+	if len(files) == 0 {
 		fmt.Println("You don't have any note here")
 		return errors.New("Empty")
 	}
+
+	fmt.Println("Here are all notes: ")
+	fmt.Println("+------------------+")
+	for _, file := range files {
+		if check, _ := regexp.MatchString(".txt", file.Name()); check {
+			fmt.Println("    ", file.Name())
+		}
+	}
+	fmt.Println("+------------------+")
+
 	return nil
 }
 

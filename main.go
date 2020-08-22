@@ -11,7 +11,7 @@ import (
 func main() {
 	listCmd := &cobra.Command{
 		Use:   "Rnote",
-		Short: "Welcome back, Quan",
+		Short: "Welcome back, " + command.GetUserName(),
 	}
 
 	listCmd.AddCommand(command.GetTime())

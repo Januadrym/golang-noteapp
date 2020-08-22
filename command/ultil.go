@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"os/user"
 	"regexp"
 	"strings"
 )
@@ -59,4 +60,12 @@ func trimEndLineSequence(sq string) (string, error) {
 		return sq, nil
 	}
 	return "", fmt.Errorf("Error while trimming end of line sequence")
+}
+
+func GetUserName() string {
+	user, err := user.Current()
+	if err != nil {
+		return ""
+	}
+	return user.Name
 }

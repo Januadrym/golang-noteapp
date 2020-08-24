@@ -62,6 +62,7 @@ func trimEndLineSequence(sq string) (string, error) {
 	return "", fmt.Errorf("Error while trimming end of line sequence")
 }
 
+// GetUserName get user name on current running machine
 func GetUserName() string {
 	user, err := user.Current()
 	if err != nil {

@@ -9,6 +9,7 @@ A simple note app command line
 In active development
 
 ## Getting Started
+#### Require: Go
 
 To use just run these commands:
 ```sh

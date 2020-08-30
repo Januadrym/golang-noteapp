@@ -1,0 +1,1 @@
+## This is a built file to test for user don't have Go installed.

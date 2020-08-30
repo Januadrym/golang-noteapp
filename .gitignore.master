@@ -1,5 +1,5 @@
 # build file
-*.exe
+# *.exe
 
 # test file
 *.txt

@@ -14,16 +14,19 @@ func ReadNote() *cobra.Command {
 	return &cobra.Command{
 		Use:   "read",
 		Short: "Read an existing note",
-		Long:  "Choose an existing note to read :|",
+		Long:  "Choose an existing note to read, example: read filename.txt",
+		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
-			if err := showListFile(); err != nil {
-				return nil
-			}
-			fmt.Println("Choose a note to read")
-			filename, err := inputFileName()
-			if err != nil {
-				return err
-			}
+			//if err := showListFile(); err != nil {
+			//	return nil
+			//}
+			//fmt.Println("Choose a note to read")
+			//filename, err := inputFileName()
+			//if err != nil {
+			//	return err
+			//}
+
+			filename := args[0]
 			if _, er := os.Stat(filename); os.IsNotExist(er) {
 				fmt.Println("File does not exist")
 				return er

@@ -3,3 +3,8 @@
 
 # test file
 *.txt
+
+.vscode
+.idea
+/.idea
+/.vscode

@@ -31,7 +31,7 @@ func DeleteNote() *cobra.Command {
 			if err := os.Remove(filename); err != nil {
 				return err
 			}
-			fmt.Println("Note deleted, name:", filename)
+			fmt.Println("Note : ", filename, " deleted")
 			return nil
 		},
 	}

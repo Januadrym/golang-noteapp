@@ -26,3 +26,14 @@ func main() {
 		os.Exit(1)
 	}
 }
+
+/*
+new design:
+rnote [filename] --option-flag
+default (no flag): read
+--new
+--delete (confirm)
+--update
+
+rnote -no command-: show all txt file
+*/

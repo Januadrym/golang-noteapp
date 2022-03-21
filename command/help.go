@@ -17,8 +17,6 @@ Here is how:
 	"delete" to delete, obviously
 	"show" to show all *.txt file in current directory
 	"time" addition command to display time 
-
-Furthur regards,
-Quan`,
+`,
 	}
 }

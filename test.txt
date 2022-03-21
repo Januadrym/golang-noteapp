@@ -1,0 +1,7 @@
+12345678
+abcdef
+my name is haha
+next line is empty
+
+this is not
+end.

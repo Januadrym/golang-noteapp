@@ -3,7 +3,9 @@
 
 # test file
 *.txt
+*.json
 
+# folder
 .vscode
 .idea
 /.idea
